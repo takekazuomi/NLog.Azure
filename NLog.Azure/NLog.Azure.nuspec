@@ -9,7 +9,7 @@
     <licenseUrl>https://github.com/takekazuomi/NLog.Azure/raw/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/NLog/NLog.Azure</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>NLog targets and layout renderers specific for Microsoft Azure</description>
+    <description>NLog layout renderers specific for Microsoft Azure Cloud Service</description>
     <releaseNotes>Custom target for NLog.</releaseNotes>
     <copyright>Copyright 2015</copyright>
     <tags>nlog target layoutrenderer azure</tags>

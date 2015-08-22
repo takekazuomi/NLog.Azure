@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "NLog.Azure.Example", "NLog.Azure.Example\NLog.Azure.Example.ccproj", "{EFA19BEC-6544-421E-B991-296119477E40}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebRole1", "WebRole1\WebRole1.csproj", "{4B688809-8140-414F-BBE2-B7D6527D3FF7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EFA19BEC-6544-421E-B991-296119477E40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFA19BEC-6544-421E-B991-296119477E40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFA19BEC-6544-421E-B991-296119477E40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFA19BEC-6544-421E-B991-296119477E40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B688809-8140-414F-BBE2-B7D6527D3FF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B688809-8140-414F-BBE2-B7D6527D3FF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B688809-8140-414F-BBE2-B7D6527D3FF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B688809-8140-414F-BBE2-B7D6527D3FF7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,5 +1,6 @@
 ﻿using System.Text;
 using Microsoft.WindowsAzure.ServiceRuntime;
+using NLog.Common;
 using NLog.Config;
 using NLog.LayoutRenderers;
 using NLog.Layouts;
@@ -30,12 +31,15 @@ namespace NLog.Azure.LayoutRenderers
                     builder.Append(layout.Render(logEvent));
                     return;
                 }
-                catch (RoleEnvironmentException)
+                catch (RoleEnvironmentException exception)
                 {
+                    InternalLogger.Warn("RoleEnvironmentException {0}", exception.Message);
                 }
             }
             if (Default != null)
             {
+                InternalLogger.Info("RoleEnvironment not available. Use defaut value: {0}", Default);
+
                 var layout = new SimpleLayout(Default);
                 builder.Append(layout.Render(logEvent));
             }

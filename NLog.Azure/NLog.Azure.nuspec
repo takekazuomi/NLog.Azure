@@ -7,11 +7,11 @@
     <authors>Takekazu Omi</authors>
     <owners>Takekazu Omi</owners>
     <licenseUrl>https://github.com/takekazuomi/NLog.Azure/raw/master/LICENSE</licenseUrl>
-    <projectUrl>https://github.com/NLog/NLog.Azure</projectUrl>
+    <projectUrl>https://github.com/takekazuomi/NLog.Azure</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>NLog layout renderers specific for Microsoft Azure Cloud Service</description>
     <releaseNotes>Custom target for NLog.</releaseNotes>
-    <copyright>Copyright 2015</copyright>
-    <tags>nlog target layoutrenderer azure</tags>
+    <copyright>Copyright © Takekazu Omi</copyright>
+    <tags>nlog layoutrenderer azure</tags>
   </metadata>
 </package>

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>NLog.Azure</id>
+    <version>$version$</version>
+    <title>NLog.Azure</title>
+    <authors>Takekazu Omi</authors>
+    <owners>Takekazu Omi</owners>
+    <licenseUrl>https://github.com/takekazuomi/NLog.Azure/raw/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/NLog/NLog.Azure</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>NLog targets and layout renderers specific for Microsoft Azure</description>
+    <releaseNotes>Custom target for NLog.</releaseNotes>
+    <copyright>Copyright 2015</copyright>
+    <tags>nlog target layoutrenderer azure</tags>
+  </metadata>
+</package>

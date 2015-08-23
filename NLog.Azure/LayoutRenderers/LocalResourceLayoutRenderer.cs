@@ -1,5 +1,4 @@
 ﻿using System.Text;
-using Microsoft.WindowsAzure.ServiceRuntime;
 using NLog.Common;
 using NLog.Config;
 using NLog.LayoutRenderers;
@@ -11,6 +10,10 @@ namespace NLog.Azure.LayoutRenderers
     [LayoutRenderer("azure-local-resource")]
     public class LocalResourceLayoutRenderer : LayoutRenderer
     {
+        private string _cachedValue;
+        private bool _isCached;
+
+
         [RequiredParameter]
         [DefaultParameter]
         public string Name { get; set; }
@@ -22,27 +25,47 @@ namespace NLog.Azure.LayoutRenderers
 
         protected override void Append(StringBuilder builder, LogEventInfo logEvent)
         {
-            if (RoleEnvironment.IsAvailable && Name != null)
+            if (!_isCached)
             {
-                try
+                _cachedValue = GetValue();
+            }
+
+            var layout = new SimpleLayout(_cachedValue);
+            builder.Append(layout.Render(logEvent));
+        }
+        protected override void InitializeLayoutRenderer()
+        {
+            base.InitializeLayoutRenderer();
+            _cachedValue = null;
+            _isCached = false;
+        }
+
+        /// <summary>
+        /// Closes the layout renderer.
+        /// </summary>
+        protected override void CloseLayoutRenderer()
+        {
+            base.CloseLayoutRenderer();
+            _cachedValue = null;
+            _isCached = false;
+        }
+
+        private string GetValue()
+        {
+            var serviceRuntime = new ServiceRuntimeWrapper();
+            _isCached = true;
+            if (serviceRuntime.IsAvailable && Name != null)
+            {
+                var rootPath = serviceRuntime.GetLocalResouceRootPath(Name);
+                if (rootPath != null)
                 {
-                    var localResouceName = RoleEnvironment.GetLocalResource(Name);
-                    var layout = new SimpleLayout(localResouceName.RootPath);
-                    builder.Append(layout.Render(logEvent));
-                    return;
-                }
-                catch (RoleEnvironmentException exception)
-                {
-                    InternalLogger.Warn("RoleEnvironmentException {0}", exception.Message);
+                    return rootPath;
                 }
             }
             if (Default != null)
-            {
-                InternalLogger.Info("RoleEnvironment not available. Use defaut value: {0}", Default);
+                InternalLogger.Info($"RoleEnvironment not available or local resouce ({Name}) not defined. Use defaut value: {Default}");
 
-                var layout = new SimpleLayout(Default);
-                builder.Append(layout.Render(logEvent));
-            }
+            return Default;
         }
     }
 }

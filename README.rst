@@ -15,7 +15,7 @@ Layout renderers
 Configuration Syntax
 ======================
 
-.. code-block::
+.. code-block:: none
 
   ${azure-local-resource:name=String:default=String}"
 
